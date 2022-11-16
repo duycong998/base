@@ -1,5 +1,6 @@
 package nexlsoft.loginsample.repository.remote
 
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
 import kotlinx.coroutines.flow.Flow
 import nexlsoft.loginsample.repository.model.Categories
@@ -9,12 +10,13 @@ import nexlsoft.loginsample.repository.model.UserResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiService {
-    @GET("/getCategory")
-    suspend fun getListCategories(): Flow<ResponseWrapper<List<Categories>>>
+    @GET("categories")
+    suspend fun getListCategories(): Categories
 
-    @POST("/login")
-    fun login(@Body loginRequest: User): Flow<ResponseWrapper<UserResponse>>
+    @POST("auth/signup")
+    suspend fun login(@Body loginRequest: User): UserResponse
 }

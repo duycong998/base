@@ -1,5 +1,6 @@
 package nexlsoft.loginsample.base
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
@@ -27,6 +28,7 @@ abstract class BaseViewModel : ViewModel() {
         onError: (() -> Unit)? = null
     ) {
         this.subscribe(onSuccess) {->
+            Log.d("###","vvv:"+onError?.invoke())
             onError?.invoke()
         }
     }

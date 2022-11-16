@@ -1,5 +1,12 @@
 package nexlsoft.loginsample.repository.model
 
-data class Categories (
-    val id: String = "",
+import com.google.gson.annotations.SerializedName
+
+data class Category (
+    val _id: String = "",
     val name: String = "")
+
+class Categories {
+    @SerializedName("categories")
+    var categories: List<Category>? = null
+}

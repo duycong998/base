@@ -1,9 +1,11 @@
 package nexlsoft.loginsample.repository.model
 
-class UserResponse(
+data class UserResponse(
+    val _id: String = "",
     val firstName: String = "",
     val lastName: String = "",
-    val email: String = "",
-    val password: String = "",
-    val token: String = ""
+    val token: String = "",
+    val refreshToken: String = ""
+
+
 )
