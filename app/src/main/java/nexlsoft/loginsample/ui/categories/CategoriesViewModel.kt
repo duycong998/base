@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import nexlsoft.loginsample.base.BaseViewModel
-import nexlsoft.loginsample.repository.model.Categories
-import nexlsoft.loginsample.repository.remote.RemoteSource
+import nexlsoft.loginsample.data.repository.model.Categories
+import nexlsoft.loginsample.data.repository.remote.RemoteSource
 
 class CategoriesViewModel(
     private val remote: RemoteSource,

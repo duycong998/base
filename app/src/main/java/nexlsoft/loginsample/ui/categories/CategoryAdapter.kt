@@ -7,12 +7,12 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import nexlsoft.loginsample.R
-import nexlsoft.loginsample.repository.model.Category
+import nexlsoft.loginsample.data.repository.model.Category
 
 class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
     private var listCategory: MutableList<Category> = mutableListOf()
 
-    fun updateNote(categories: MutableList<Category>) {
+    fun updateCategory(categories: MutableList<Category>) {
         categories.let {
             this.listCategory.clear()
             this.listCategory.addAll(categories)

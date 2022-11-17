@@ -1,17 +1,15 @@
 package nexlsoft.loginsample.ui.categories
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import nexlsoft.loginsample.R
 import nexlsoft.loginsample.databinding.FragmentCategoriesBinding
-import nexlsoft.loginsample.repository.model.Categories
-import nexlsoft.loginsample.repository.model.Category
+import nexlsoft.loginsample.data.repository.model.Categories
+import nexlsoft.loginsample.data.repository.model.Category
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CategoriesFragment : Fragment(R.layout.fragment_categories) {
@@ -40,7 +38,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
         viewModel.getListCategories()
         viewModel.liveData.observe(viewLifecycleOwner) {
             categories = it
-            categoryAdapter.updateNote(it.categories as MutableList<Category>)
+            categoryAdapter.updateCategory(it.categories as MutableList<Category>)
         }
         //create
     }

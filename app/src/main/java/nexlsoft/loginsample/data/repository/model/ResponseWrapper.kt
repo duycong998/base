@@ -1,4 +1,4 @@
-package nexlsoft.loginsample.repository.model
+package nexlsoft.loginsample.data.repository.model
 
 sealed class ResponseWrapper<out T> {
     object Loading : ResponseWrapper<Nothing>()

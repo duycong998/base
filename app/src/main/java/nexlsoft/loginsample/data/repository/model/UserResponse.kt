@@ -1,4 +1,4 @@
-package nexlsoft.loginsample.repository.model
+package nexlsoft.loginsample.data.repository.model
 
 data class UserResponse(
     val _id: String = "",

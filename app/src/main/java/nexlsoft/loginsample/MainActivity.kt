@@ -1,5 +1,6 @@
 package nexlsoft.loginsample
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import nexlsoft.loginsample.data.local.AppSharedPreferences
 import nexlsoft.loginsample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
