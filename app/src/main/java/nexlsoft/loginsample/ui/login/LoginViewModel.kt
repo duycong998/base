@@ -21,6 +21,7 @@ class LoginViewModel( val remote: RemoteSource) : BaseViewModel() {
 
                 }.
             }*/
+            Log.d("###","login:")
             launchCoroutine {
                 remote.login(user)
                 try{
