@@ -12,6 +12,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
+            Log.d("###","vvv")
             androidContext(this@MyApplication)
             modules(appModule)
         }
