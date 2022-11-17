@@ -46,6 +46,20 @@
         android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <TextView
+        android:id="@+id/tv_email_valid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:textSize="10dp"
+        android:text="Email wrong format"
+        android:layout_marginLeft="20dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/your_email" />
+
+
 
     <EditText
         android:id="@+id/edt_your_email"
@@ -57,6 +71,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/your_email">
     </EditText>
+
+    <TextView
+        android:id="@+id/tv_password_valid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="please input password long"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/your_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInput" />
 
     <TextView
         android:id="@+id/your_password"

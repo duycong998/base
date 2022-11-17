@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/img_sign" />
+            app:srcCompat="@drawable/img_categores" />
     </FrameLayout>
 
     <TextView
