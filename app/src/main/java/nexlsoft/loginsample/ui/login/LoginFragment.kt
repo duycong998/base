@@ -42,14 +42,8 @@ class LoginFragment : Fragment(R.layout.fragment_login), SharedPreferences.OnSha
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        try{
-            lifecycleScope.launch {
+        //binding!!.viewLogin.setBackgroundResource(@drawable/back)
 
-
-            }
-        } catch (ex: Exception){
-            Log.d("###","vvv:"+ex.message)
-        }
 
 //        binding!!.edtYourPassword.setOnClickListener(object : TextWatcher {
 //            override fun afterTextChanged(s: Editable?) {

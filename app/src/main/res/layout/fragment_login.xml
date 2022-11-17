@@ -2,7 +2,27 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/view_login"
+    android:background="@drawable/backgourd"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/your_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/img_sign" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/textView"
@@ -11,6 +31,7 @@
         android:layout_marginTop="250dp"
         android:text="Let's get you started!"
         android:textSize="30dp"
+        android:textColor="@color/white"
         android:layout_marginLeft="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,6 +40,7 @@
         android:id="@+id/your_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Your email"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
@@ -29,8 +51,9 @@
         android:id="@+id/edt_your_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Your email"
         android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/your_email">
     </EditText>
@@ -40,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your password"
+        android:textColor="@color/white"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,14 +78,19 @@
         android:layout_marginRight="10dp"
         app:passwordToggleEnabled="true"
         android:transitionName="logo_pass"
-        app:boxBackgroundColor="#80FFFFFF"
+        app:passwordToggleTint="#7C7F83"
         app:layout_constraintTop_toBottomOf="@+id/your_password"
         app:hintTextColor="@color/white">
 
         <EditText
             android:id="@+id/edt_your_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:hint="Password"
+            android:textColorHint="@color/white"
+
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -70,6 +99,7 @@
         android:id="@+id/level_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:layout_marginTop="15dp"
         android:text="short"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,6 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:textColor="@color/white"
         android:text="I am over 16 year old"
         app:layout_constraintStart_toEndOf="@+id/checkBox"
         app:layout_constraintTop_toBottomOf="@+id/textInput" />

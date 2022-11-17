@@ -24,12 +24,8 @@ class CategoriesViewModel(
         launchCoroutine {
             if(remote.getListCategories().isSuccessful){
                 categories = remote.getListCategories().body()
-                Log.d("####1", Gson().toJson(categories!!.categories))
                 mutableLV.postValue(categories)
             }
-
-
-
         }
     }
 

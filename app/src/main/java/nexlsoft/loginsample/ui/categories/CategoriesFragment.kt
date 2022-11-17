@@ -40,7 +40,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
             categories = it
             categoryAdapter.updateCategory(it.categories as MutableList<Category>)
         }
-        //create
+
     }
 
     private fun initView() {

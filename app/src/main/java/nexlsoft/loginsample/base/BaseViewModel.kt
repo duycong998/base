@@ -17,9 +17,6 @@ abstract class BaseViewModel : ViewModel() {
         }
     }
 
-
-
-
 }
 
 

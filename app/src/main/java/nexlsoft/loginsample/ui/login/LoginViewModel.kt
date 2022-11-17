@@ -12,17 +12,9 @@ import nexlsoft.loginsample.data.repository.remote.RemoteSource
 import retrofit2.Response
 
 class LoginViewModel( val remote: RemoteSource) : BaseViewModel() {
-     //var token = MutableLiveData<String>()
-    var token: String? = null
     private var response : Response<UserResponse>? = null
      fun login(user: User, context: Context)  {
         try {
-           /* kotlin.runCatching {
-                launchCoroutine {
-
-                }.
-            }*/
-
             launchCoroutine {
                 response = remote.login(user)
                 if(response!!.isSuccessful){
