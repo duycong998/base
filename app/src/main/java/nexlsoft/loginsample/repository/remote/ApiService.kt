@@ -15,7 +15,7 @@ import retrofit2.http.POST
 
 interface ApiService {
     @GET("categories")
-    suspend fun getListCategories(): Categories
+    suspend fun getListCategories(): Response<Categories>
 
     @POST("auth/signup")
     suspend fun login(@Body loginRequest: User): UserResponse

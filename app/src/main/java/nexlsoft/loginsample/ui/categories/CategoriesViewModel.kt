@@ -17,9 +17,17 @@ class CategoriesViewModel(
     val liveData : LiveData<Categories> =  mutableLV
     fun getListCategories() {
         launchCoroutine {
-            categories = remote.getListCategories()
-            Log.d("####1", Gson().toJson(categories!!.categories))
-            mutableLV.postValue(categories)
+            if(remote.getListCategories().isSuccessful){
+                categories = remote.getListCategories().body()
+                Log.d("####1", Gson().toJson(categories!!.categories))
+                mutableLV.postValue(categories)
+            }
+
+
+
         }
     }
+
+
 }
+

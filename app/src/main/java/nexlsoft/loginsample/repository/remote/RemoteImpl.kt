@@ -7,9 +7,10 @@ import nexlsoft.loginsample.repository.model.Categories
 import nexlsoft.loginsample.repository.model.ResponseWrapper
 import nexlsoft.loginsample.repository.model.User
 import nexlsoft.loginsample.repository.model.UserResponse
+import retrofit2.Response
 
 class RemoteImpl ( private val apiService: ApiService ) : RemoteSource {
-    override suspend fun getListCategories(): Categories {
+    override suspend fun getListCategories(): Response<Categories> {
         return apiService.getListCategories()
     }
 

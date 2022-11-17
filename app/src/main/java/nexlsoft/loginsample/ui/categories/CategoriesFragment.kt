@@ -15,8 +15,6 @@ import nexlsoft.loginsample.repository.model.Category
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CategoriesFragment : Fragment(R.layout.fragment_categories) {
-    //  private val viewModel: CategoriesViewModel by sharedViewModel()
-
     private val viewModel by viewModel<CategoriesViewModel>()
     private var binding: FragmentCategoriesBinding? = null
     private val categoryAdapter by lazy { CategoryAdapter() }
@@ -42,11 +40,8 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
         viewModel.getListCategories()
         viewModel.liveData.observe(viewLifecycleOwner) {
             categories = it
-            Log.d("####", it.categories.toString())
             categoryAdapter.updateNote(it.categories as MutableList<Category>)
         }
-        Log.d("###", "vvvvvv" + categories?.categories.toString())
-
         //create
     }
 

@@ -46,20 +46,20 @@
         app:layout_constraintTop_toBottomOf="@+id/edt_your_email" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_your_password"
+        android:id="@+id/textInput"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="10dp"
-        android:hint="PassWord"
         app:passwordToggleEnabled="true"
         android:transitionName="logo_pass"
         app:boxBackgroundColor="#80FFFFFF"
         app:layout_constraintTop_toBottomOf="@+id/your_password"
         app:hintTextColor="@color/white">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/edt_your_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -73,7 +73,7 @@
         android:layout_marginTop="15dp"
         android:text="short"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_your_password" />
+        app:layout_constraintTop_toBottomOf="@+id/textInput" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_your_password" />
+        app:layout_constraintTop_toBottomOf="@+id/textInput" />
 
     <TextView
         android:id="@+id/text_check_box"
@@ -90,7 +90,7 @@
         android:layout_marginTop="15dp"
         android:text="I am over 16 year old"
         app:layout_constraintStart_toEndOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/edt_your_password" />
+        app:layout_constraintTop_toBottomOf="@+id/textInput" />
 
     <Button
         android:id="@+id/btn_signUp"

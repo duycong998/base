@@ -23,16 +23,6 @@ abstract class BaseViewModel : ViewModel() {
 
 
 
-    suspend fun <T> Flow<ResponseWrapper<T>>.subscribe(
-        onSuccess: ((T) -> Unit)? = null,
-        onError: (() -> Unit)? = null
-    ) {
-        this.subscribe(onSuccess) {->
-            Log.d("###","vvv:"+onError?.invoke())
-            onError?.invoke()
-        }
-    }
-
 
 }
 
