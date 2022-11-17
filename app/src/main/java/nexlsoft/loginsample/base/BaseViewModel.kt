@@ -1,12 +1,8 @@
 package nexlsoft.loginsample.base
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.Flow
-import nexlsoft.loginsample.repository.model.ErrorResponse
-import nexlsoft.loginsample.repository.model.ResponseWrapper
 
 abstract class BaseViewModel : ViewModel() {
 

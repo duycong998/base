@@ -1,12 +1,17 @@
 package nexlsoft.loginsample.ui.categories
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.delay
 import nexlsoft.loginsample.base.BaseViewModel
-import nexlsoft.loginsample.repository.model.Categories
-import nexlsoft.loginsample.repository.remote.RemoteSource
+import nexlsoft.loginsample.data.repository.model.Categories
+import nexlsoft.loginsample.data.repository.remote.RemoteSource
+
 
 class CategoriesViewModel(
     private val remote: RemoteSource,

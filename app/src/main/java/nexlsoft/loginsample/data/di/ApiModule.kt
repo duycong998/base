@@ -1,17 +1,17 @@
-package nexlsoft.loginsample.di
+package nexlsoft.loginsample.data.di
 
 import android.content.Context
 import com.datn.cookingguideapp.data.remote.interceptor.InterceptorImpl
 import com.google.gson.Gson
-import nexlsoft.loginsample.repository.remote.ApiService
-import nexlsoft.loginsample.repository.remote.RemoteImpl
-import nexlsoft.loginsample.repository.remote.RemoteSource
+import nexlsoft.loginsample.data.local.AppSharedPreferences
+import nexlsoft.loginsample.data.repository.remote.ApiService
+import nexlsoft.loginsample.data.repository.remote.RemoteImpl
+import nexlsoft.loginsample.data.repository.remote.RemoteSource
 import nexlsoft.loginsample.ui.categories.CategoriesViewModel
 import nexlsoft.loginsample.ui.login.LoginViewModel
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -25,7 +25,8 @@ val appModule =  module {
     single { createRetrofit(get(), get()) }
     single { buildOKHttpClient(androidContext(), get()) }
     single { buildGSON() }
-    single<Interceptor> { InterceptorImpl() }
+    single { AppSharedPreferences(androidContext()) }
+    single<Interceptor> { InterceptorImpl(get()) }
 
     factory<RemoteSource> { RemoteImpl(get())}
 
@@ -38,7 +39,7 @@ val appModule =  module {
 private fun createRetrofit(gson: Gson, okHttpClient: OkHttpClient): ApiService {
     return Retrofit.Builder()
         .baseUrl("http://streaming.nexlesoft.com:4000/api/")
-        .addConverterFactory(GsonConverterFactory.create(gson))
+        .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .client(okHttpClient)
         .build()

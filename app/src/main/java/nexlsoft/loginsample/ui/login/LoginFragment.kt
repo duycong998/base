@@ -1,34 +1,34 @@
 package nexlsoft.loginsample.ui.login
 
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.ActionOnlyNavDirections
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import nexlsoft.loginsample.R
-import nexlsoft.loginsample.databinding.FragmentCategoriesBinding
-import nexlsoft.loginsample.databinding.FragmentFirstBinding
+import nexlsoft.loginsample.data.local.AppSharedPreferences
+import nexlsoft.loginsample.data.repository.model.User
 import nexlsoft.loginsample.databinding.FragmentLoginBinding
-import nexlsoft.loginsample.repository.model.User
-import nexlsoft.loginsample.ui.categories.CategoriesFragment
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginFragment : Fragment(R.layout.fragment_login) {
+class LoginFragment : Fragment(R.layout.fragment_login), SharedPreferences.OnSharedPreferenceChangeListener {
     private val viewModel by viewModel<LoginViewModel>()
     private var binding: FragmentLoginBinding? = null
 
     private var mView: View? = null
+
+    override fun onStart() {
+        super.onStart()
+        AppSharedPreferences(requireContext()).registerOnChange(this)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (mView == null) {
@@ -69,8 +69,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
 
         binding!!.btnSignUp.setOnClickListener {
-            //viewModel.login(user = User("trung", "huynh",   binding!!.edtYourEmail.text.toString(),   binding!!.edtYourPassword.text.toString()))
-            findNavController().navigate(R.id.CategoriesFragment)
+            viewModel.login(user = User("trung", "huynh",   binding!!.edtYourEmail.text.toString(),   binding!!.edtYourPassword.text.toString()), requireContext())
+           findNavController().navigate(R.id.CategoriesFragment)
         }
 
     }
@@ -87,6 +87,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         return true
     }
 
+    override fun onSharedPreferenceChanged(p0: SharedPreferences?, p1: String?) {
+    }
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+        AppSharedPreferences(requireContext()).unregisterOnChange(this)
+    }
 }
